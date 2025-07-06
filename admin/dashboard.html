@@ -97,6 +97,9 @@
                         <a class="nav-link" href="#" onclick="logout()">
                             <i class="fas fa-sign-out-alt me-2"></i>Déconnexion
                         </a>
+                        <a class="nav-link" href="#" onclick="showImageGuideModal()">
+                            <i class="fas fa-question-circle me-2"></i>Comment ajouter une photo ?
+                        </a>
                     </nav>
                 </div>
             </div>
@@ -188,6 +191,23 @@
                             </div>
                         </div>
                     </form>
+                    <div class="mb-4">
+                        <h5 class="mb-2">Comment ajouter une photo ?</h5>
+                        <ol style="padding-left: 1.2em;">
+                            <li>
+                                <strong>Allez sur <a href="https://postimg.cc/" target="_blank">postimg.cc</a></strong><br>
+                                <img src="../img/step1.png" alt="Étape 1" style="max-width: 220px; margin: 8px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;" onclick="showImageModal(this.src)">
+                            </li>
+                            <li>
+                                <strong>Téléversez la/les photo(s) que vous souhaitez ajouter</strong><br>
+                                <img src="../img/step2.png" alt="Étape 2" style="max-width: 220px; margin: 8px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;" onclick="showImageModal(this.src)">
+                            </li>
+                            <li>
+                                <strong>Copiez le lien direct et collez-le dans le champ "URL de l'Image"</strong><br>
+                                <img src="../img/step3.png" alt="Étape 3" style="max-width: 220px; margin: 8px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;" onclick="showImageModal(this.src)">
+                            </li>
+                        </ol>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
@@ -234,6 +254,45 @@
         </div>
     </div>
 
+    <!-- Image Preview Modal -->
+    <div class="modal fade" id="imagePreviewModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background: transparent; border: none; box-shadow: none;">
+                <div class="modal-body p-0 d-flex justify-content-center align-items-center">
+                    <img id="imagePreviewModalImg" src="" alt="Agrandir" style="max-width: 90vw; max-height: 80vh; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); background: #fff;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Guide Modal -->
+    <div class="modal fade" id="imageGuideModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Comment ajouter une photo ?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ol style="padding-left: 1.2em;">
+                        <li>
+                            <strong>Allez sur <a href="https://postimg.cc/" target="_blank">postimg.cc</a></strong><br>
+                            <img src="../img/step1.png" alt="Étape 1" style="max-width: 220px; margin: 8px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;" onclick="showImageModal(this.src)">
+                        </li>
+                        <li>
+                            <strong>Téléversez la/les photo(s) que vous souhaitez ajouter</strong><br>
+                            <img src="../img/step2.png" alt="Étape 2" style="max-width: 220px; margin: 8px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;" onclick="showImageModal(this.src)">
+                        </li>
+                        <li>
+                            <strong>Copiez le lien direct et collez-le dans le champ "URL de l'Image"</strong><br>
+                            <img src="../img/step3.png" alt="Étape 3" style="max-width: 220px; margin: 8px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;" onclick="showImageModal(this.src)">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
@@ -247,5 +306,24 @@
     
     <!-- Admin Dashboard Script -->
     <script src="dashboard.js"></script>
+
+    <script>
+    function showImageModal(src) {
+        // Close the guide modal if open
+        var guideModalEl = document.getElementById('imageGuideModal');
+        if (guideModalEl && guideModalEl.classList.contains('show')) {
+            bootstrap.Modal.getInstance(guideModalEl).hide();
+        }
+        var modalImg = document.getElementById('imagePreviewModalImg');
+        modalImg.src = src;
+        var modal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
+        modal.show();
+    }
+
+    function showImageGuideModal() {
+        var modal = new bootstrap.Modal(document.getElementById('imageGuideModal'));
+        modal.show();
+    }
+    </script>
 </body>
 </html> 
