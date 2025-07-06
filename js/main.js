@@ -146,6 +146,14 @@
         }
     });
 
+    // Custom nav for package-carousel
+    $('#package-carousel-prev').click(function() {
+        $('.package-carousel').trigger('prev.owl.carousel');
+    });
+    $('#package-carousel-next').click(function() {
+        $('.package-carousel').trigger('next.owl.carousel');
+    });
+
     // Form submission handling with success animation
     $('form').on('submit', function(e) {
         e.preventDefault();
@@ -185,5 +193,53 @@
         }, 1500);
     });
     
+    // Drag-to-scroll for .gallery-carousel
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    const gallery = document.querySelector('.gallery-carousel');
+    if (gallery) {
+        gallery.addEventListener('mousedown', (e) => {
+            isDown = true;
+            gallery.classList.add('dragging');
+            startX = e.pageX - gallery.offsetLeft;
+            scrollLeft = gallery.scrollLeft;
+        });
+        gallery.addEventListener('mouseleave', () => {
+            isDown = false;
+            gallery.classList.remove('dragging');
+        });
+        gallery.addEventListener('mouseup', () => {
+            isDown = false;
+            gallery.classList.remove('dragging');
+        });
+        gallery.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallery.offsetLeft;
+            const walk = (x - startX) * 1.2; // scroll speed
+            gallery.scrollLeft = scrollLeft - walk;
+        });
+        // Touch support
+        let touchStartX = 0;
+        let touchScrollLeft = 0;
+        gallery.addEventListener('touchstart', (e) => {
+            isDown = true;
+            gallery.classList.add('dragging');
+            touchStartX = e.touches[0].pageX;
+            touchScrollLeft = gallery.scrollLeft;
+        });
+        gallery.addEventListener('touchend', () => {
+            isDown = false;
+            gallery.classList.remove('dragging');
+        });
+        gallery.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX;
+            const walk = (x - touchStartX) * 1.2;
+            gallery.scrollLeft = touchScrollLeft - walk;
+        });
+    }
+
 })(jQuery);
 

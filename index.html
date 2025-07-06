@@ -30,9 +30,69 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Card Styles -->
+    <link href="css/card-styles.css" rel="stylesheet">
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        /* Fixed card styling */
+        .package-carousel {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            gap: 20px !important;
+            padding: 20px 0 !important;
+            width: 100% !important;
+        }
+        .package-item {
+            flex: 0 0 350px;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 350px;
+            min-height: 450px;
+        }
+        .package-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .package-item .overflow-hidden {
+            height: 250px;
+            overflow: hidden;
+        }
+        .package-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .package-item:hover img {
+            transform: scale(1.05);
+        }
+        .package-item .text-center {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .package-item h4 {
+            font-size: 1.1rem;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .package-item p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -184,126 +244,33 @@
     <!-- Service End -->
 
 
+    <!-- Package End -->
+
     <!-- Package Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Packages</h6>
-                <h1 class="mb-5">Nos Forfaits de Voyage</h1>
+                <h1 class="mb-5">Education / Immigration</h1>
             </div>
-            <div class="position-relative">
-                <div class="owl-carousel package-carousel">
-                    <div class="package-item mx-2">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/package-1.jpg" alt="" style="width: 100%; height: 250px; object-fit: cover;">
-                        </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Thaïlande</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>3 jours</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Personnes</small>
-                        </div>
-                        <div class="text-center p-4">
-                            <h3 class="mb-0">20,115 DZD</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <p>Expérience de voyage exceptionnelle avec nos services premium</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Lire Plus</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Réserver</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="package-item mx-2">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/package-2.jpg" alt="" style="width: 100%; height: 250px; object-fit: cover;">
-                        </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Indonésie</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>3 jours</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Personnes</small>
-                        </div>
-                        <div class="text-center p-4">
-                            <h3 class="mb-0">18,765 DZD</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <p>Découvrez les merveilles de l'Indonésie avec nos forfaits exclusifs</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Lire Plus</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Réserver</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="package-item mx-2">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/package-3.jpg" alt="" style="width: 100%; height: 250px; object-fit: cover;">
-                        </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Malaisie</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>3 jours</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Personnes</small>
-                        </div>
-                        <div class="text-center p-4">
-                            <h3 class="mb-0">25,515 DZD</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <p>Aventure unique en Malaisie avec nos services personnalisés</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Lire Plus</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Réserver</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="package-item mx-2">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/package-1.jpg" alt="" style="width: 100%; height: 250px; object-fit: cover;">
-                        </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Singapour</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>4 jours</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Personnes</small>
-                        </div>
-                        <div class="text-center p-4">
-                            <h3 class="mb-0">22,950 DZD</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <p>Découvrez Singapour avec nos forfaits premium et services exclusifs</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Lire Plus</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Réserver</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="package-loader" style="display: flex; justify-content: center; align-items: center; min-height: 120px; font-size: 1.2rem; color: #b8860b;">
+                <span class="fa fa-spinner fa-spin" style="margin-right: 10px;"></span> Téléchargement...
+            </div>
+            <div class="package-carousel owl-carousel">
+                <!-- Dynamic packages will be loaded here from Firebase -->
+            </div>
+            <div class="package-carousel-nav">
+                <button id="package-carousel-prev" aria-label="Précédent"><i class="fa fa-chevron-left"></i></button>
+                <button id="package-carousel-next" aria-label="Suivant"><i class="fa fa-chevron-right"></i></button>
             </div>
         </div>
     </div>
     <!-- Package End -->
 
-
     <!-- Booking Start -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="booking p-5">
+            <div class="booking p-5" id="contact-form">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-6 text-white">
                         <h6 class="text-white text-uppercase">Réservation</h6>
@@ -357,34 +324,177 @@
         <div class="container">
             <div class="text-center">
                 <h6 class="section-title bg-white text-center text-primary px-3">Galerie</h6>
-                <h1 class="mb-5">Nos Réalisations</h1>
+                <h1 class="mb-5">Visa Accepté</h1>
             </div>
-            <div class="owl-carousel gallery-carousel position-relative">
-                <div class="gallery-item bg-white text-center border p-4 rounded mx-2">
-                    <img class="img-fluid rounded mb-3" src="img/testimonial-1.jpg" alt="Étudiants en voyage" style="width: 100%; height: 200px; object-fit: cover;">
-                    <h5 class="mb-2">Étudiants en Voyage</h5>
-                    <p class="mb-0">Accompagnement d'étudiants vers leurs destinations d'études internationales</p>
-                </div>
-                <div class="gallery-item bg-white text-center border p-4 rounded mx-2">
-                    <img class="img-fluid rounded mb-3" src="img/testimonial-2.jpg" alt="Universités partenaires" style="width: 100%; height: 200px; object-fit: cover;">
-                    <h5 class="mb-2">Universités Partenaires</h5>
-                    <p class="mb-0">Collaboration avec des institutions académiques de renommée mondiale</p>
-                </div>
-                <div class="gallery-item bg-white text-center border p-4 rounded mx-2">
-                    <img class="img-fluid rounded mb-3" src="img/testimonial-3.jpg" alt="Services consulaires" style="width: 100%; height: 200px; object-fit: cover;">
-                    <h5 class="mb-2">Services Consulaires</h5>
-                    <p class="mb-0">Assistance complète pour les visas et documents de voyage</p>
-                </div>
-                <div class="gallery-item bg-white text-center border p-4 rounded mx-2">
-                    <img class="img-fluid rounded mb-3" src="img/testimonial-4.jpg" alt="Consultation éducative" style="width: 100%; height: 200px; object-fit: cover;">
-                    <h5 class="mb-2">Consultation Éducative</h5>
-                    <p class="mb-0">Conseils personnalisés pour vos projets d'études à l'étranger</p>
-                </div>
+                        <div class="gallery-carousel">
+                <!-- Dynamic visa images will be loaded here from Firebase -->
             </div>
         </div>
     </div>
     <!-- Gallery End -->
         
+
+    <!-- Pack Modals Start -->
+    <!-- France Pack Modal -->
+    <div class="modal fade" id="francePackModal" tabindex="-1" aria-labelledby="francePackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="francePackModalLabel">Pack Études France</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/package-1.jpg" class="img-fluid rounded" alt="Études France">
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary mb-3">Détails du Pack</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-check text-primary me-2"></i>Assistance complète pour l'inscription universitaire</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Préparation et accompagnement pour le visa étudiant</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Recherche et réservation de logement étudiant</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Assistance pour l'ouverture de compte bancaire</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Accompagnement à l'arrivée en France</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Support linguistique et culturel</li>
+                            </ul>
+                            <div class="mt-3">
+                                <h6 class="text-primary">Durée du programme</h6>
+                                <p>6-12 mois selon le niveau d'études</p>
+                                <h6 class="text-primary">Niveau requis</h6>
+                                <p>Baccalauréat minimum, niveau B2 en français recommandé</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToContact('Pack Études France')">Réserver ce Pack</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canada Pack Modal -->
+    <div class="modal fade" id="canadaPackModal" tabindex="-1" aria-labelledby="canadaPackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="canadaPackModalLabel">Pack Études Canada</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/package-2.jpg" class="img-fluid rounded" alt="Études Canada">
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary mb-3">Détails du Pack</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-check text-primary me-2"></i>Admission dans les meilleures universités canadiennes</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Assistance pour le permis d'études</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Possibilité de permis de travail post-diplôme</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Accompagnement pour l'immigration permanente</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Support pour l'adaptation culturelle</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Assistance logement et transport</li>
+                            </ul>
+                            <div class="mt-3">
+                                <h6 class="text-primary">Durée du programme</h6>
+                                <p>12-24 mois selon le programme choisi</p>
+                                <h6 class="text-primary">Niveau requis</h6>
+                                <p>Baccalauréat, niveau IELTS 6.5 ou équivalent</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToContact('Pack Études Canada')">Réserver ce Pack</button>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+
+    <!-- Allemagne Pack Modal -->
+    <div class="modal fade" id="allemagnePackModal" tabindex="-1" aria-labelledby="allemagnePackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="allemagnePackModalLabel">Pack Études Allemagne</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/package-3.jpg" class="img-fluid rounded" alt="Études Allemagne">
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary mb-3">Détails du Pack</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-check text-primary me-2"></i>Inscription dans les universités publiques allemandes</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Cours de langue allemande intensifs</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Assistance pour le visa étudiant</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Intégration culturelle et sociale</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Support pour les démarches administratives</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Accompagnement pour le logement étudiant</li>
+                            </ul>
+                            <div class="mt-3">
+                                <h6 class="text-primary">Durée du programme</h6>
+                                <p>8-12 mois avec cours de langue inclus</p>
+                                <h6 class="text-primary">Niveau requis</h6>
+                                <p>Baccalauréat, débutant en allemand accepté</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToContact('Pack Études Allemagne')">Réserver ce Pack</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Australie Pack Modal -->
+    <div class="modal fade" id="australiePackModal" tabindex="-1" aria-labelledby="australiePackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="australiePackModalLabel">Pack Études Australie</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/package-1.jpg" class="img-fluid rounded" alt="Études Australie">
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary mb-3">Détails du Pack</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-check text-primary me-2"></i>Admission dans les universités australiennes de renom</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Assistance pour le visa étudiant subclass 500</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Possibilité de résidence permanente post-études</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Accompagnement pour l'adaptation au mode de vie australien</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Support pour le logement et les transports</li>
+                                <li><i class="fa fa-check text-primary me-2"></i>Assistance pour les démarches administratives</li>
+                            </ul>
+                            <div class="mt-3">
+                                <h6 class="text-primary">Durée du programme</h6>
+                                <p>18-24 mois selon le niveau d'études</p>
+                                <h6 class="text-primary">Niveau requis</h6>
+                                <p>Baccalauréat, niveau IELTS 6.0 minimum</p>
+                            </div>
+                        </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToContact('Pack Études Australie')">Réserver ce Pack</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pack Modals End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -434,6 +544,7 @@
                             <a href="index.html">Accueil</a>
                             <a href="about.html">À propos</a>
                             <a href="contact.html">Contact</a>
+                            <a href="admin/login.html" style="color: transparent; font-size: 1px;">Admin</a>
                         </div>
                     </div>
                 </div>
@@ -458,8 +569,40 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <!-- Firebase Integration -->
+    <script src="js/firebase-integration.js"></script>
+    <script>
+    function redirectToContact(packTitle) {
+        window.location.hash = 'contact-form';
+        setTimeout(function() {
+            var msg = document.getElementById('message');
+            if (msg) msg.value = packTitle + '\n';
+        }, 300);
+    }
+    // For card buttons
+    window.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-pack]').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                var pack = btn.getAttribute('data-pack');
+                setTimeout(function() {
+                    var msg = document.getElementById('message');
+                    if (msg) msg.value = pack + '\n';
+                }, 300);
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>

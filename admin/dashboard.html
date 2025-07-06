@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MultiCampus Group</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .sidebar .nav-link {
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+        .main-content {
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .package-card {
+            transition: all 0.3s ease;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+        }
+        .form-control, .form-select {
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        .cards-scroll-container {
+            max-height: 70vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 16px 8px;
+            margin-bottom: 1.5rem;
+            background: transparent;
+        }
+        @media (max-width: 768px) {
+            .cards-scroll-container {
+                max-height: 50vh;
+                padding: 8px 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 px-0">
+                <div class="sidebar p-3">
+                    <div class="text-center mb-4">
+                        <img src="../img/favicon.jpeg" alt="Logo" style="width: 60px; height: 60px; border-radius: 50%;">
+                        <h5 class="text-white mt-2">Admin Panel</h5>
+                    </div>
+                    
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#" onclick="showSection('packages')">
+                            <i class="fas fa-box me-2"></i>Packages
+                        </a>
+                        <a class="nav-link" href="#" onclick="showSection('visas')">
+                            <i class="fas fa-passport me-2"></i>Visas Acceptés
+                        </a>
+                        <a class="nav-link" href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt me-2"></i>Déconnexion
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10">
+                <div class="main-content p-4">
+                    <!-- Packages Section -->
+                    <div id="packagesSection">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2><i class="fas fa-box me-2"></i>Gestion des Packages</h2>
+                            <button class="btn btn-primary" onclick="openAddPackageModal()">
+                                <i class="fas fa-plus me-2"></i>Ajouter un Package
+                            </button>
+                        </div>
+
+                        <div class="cards-scroll-container mb-4">
+                            <div class="row" id="packagesContainer">
+                                <!-- Packages will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visas Section -->
+                    <div id="visasSection" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2><i class="fas fa-passport me-2"></i>Visas Acceptés</h2>
+                            <button class="btn btn-primary" onclick="openAddVisaModal()">
+                                <i class="fas fa-plus me-2"></i>Ajouter un Visa
+                            </button>
+                        </div>
+
+                        <div class="cards-scroll-container mb-4">
+                            <div class="row" id="visasContainer">
+                                <!-- Visas will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Package Modal -->
+    <div class="modal fade" id="packageModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="packageModalTitle">Ajouter un Package</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="packageForm">
+                        <input type="hidden" id="packageId">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="packageTitle" class="form-label">Titre du Package</label>
+                                    <input type="text" class="form-control" id="packageTitle" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="packageDestination" class="form-label">Destination</label>
+                                    <input type="text" class="form-control" id="packageDestination" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="packageDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="packageDescription" rows="3" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="packageImage" class="form-label">URL de l'Image</label>
+                                    <input type="url" class="form-control" id="packageImage" placeholder="https://example.com/image.jpg">
+                                    <small class="text-muted">Entrez l'URL directe de l'image</small>
+                                    <div id="currentImage" class="mt-2"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="packageDetails" class="form-label">Détails (pour modal)</label>
+                                    <textarea class="form-control" id="packageDetails" rows="8" placeholder="Liste des services inclus..."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="packageDuration" class="form-label">Durée du programme</label>
+                                    <input type="text" class="form-control" id="packageDuration">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="packageRequirements" class="form-label">Niveau requis</label>
+                                    <input type="text" class="form-control" id="packageRequirements">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" onclick="savePackage()">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Visa Modal -->
+    <div class="modal fade" id="visaModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visaModalTitle">Ajouter un Visa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="visaForm">
+                        <input type="hidden" id="visaId">
+                        <div class="mb-3">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="visaHasTitle" checked>
+                                <label class="form-check-label" for="visaHasTitle">Ajouter un titre au visa ?</label>
+                            </div>
+                        </div>
+                        <div class="mb-3" id="visaTitleGroup">
+                            <label for="visaTitle" class="form-label">Titre</label>
+                            <input type="text" class="form-control" id="visaTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="visaImage" class="form-label">URL de l'Image</label>
+                            <input type="url" class="form-control" id="visaImage" placeholder="https://example.com/visa-image.jpg" required>
+                            <small class="text-muted">Entrez l'URL directe de l'image du visa</small>
+                            <div id="currentVisaImage" class="mt-2"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" onclick="saveVisa()">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+    
+    <!-- Admin Dashboard Script -->
+    <script src="dashboard.js"></script>
+</body>
+</html> 
