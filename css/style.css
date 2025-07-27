@@ -1,9 +1,9 @@
 /********** Template CSS **********/
 :root {
-    --primary: #B8860B;
-    --secondary: #1A3460;
-    --light: #FFFFFF;
-    --dark: #14141F;
+    --primary: #010101;
+    --secondary: #010101;
+    --light: #FEFEFE;
+    --dark: #010101;
 }
 
 .fw-medium {
@@ -65,6 +65,7 @@
     height: 48px;
 }
 
+.btn,
 .btn-square,
 .btn-sm-square,
 .btn-lg-square {
@@ -73,7 +74,7 @@
     align-items: center;
     justify-content: center;
     font-weight: normal;
-    border-radius: 0px;
+    border-radius: 2px !important;
 }
 
 /* Update button and background colors to use new palette */
@@ -84,8 +85,8 @@
     transition: background 0.3s, border-color 0.3s;
 }
 .btn-primary:hover, .btn-primary:focus {
-    background-color: #8B6508 !important;
-    border-color: #8B6508 !important;
+    background-color: #010101 !important;
+    border-color: #010101 !important;
     color: var(--light) !important;
     transition: background 0.3s, border-color 0.3s;
 }
@@ -377,6 +378,13 @@
     z-index: 1;
 }
 
+.logo-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #FFFFFF !important;
+}
+
 @media (min-width: 768px) {
     .testimonial-carousel::before,
     .testimonial-carousel::after {
@@ -498,29 +506,29 @@
 /*** Custom Input Styling ***/
 .form-control:focus,
 .form-select:focus {
-    border-color: #FFD700 !important;
-    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25) !important;
-    background-color: rgba(255, 215, 0, 0.05) !important;
+    border-color: #010101 !important;
+    box-shadow: 0 0 0 0.25rem rgba(1, 1, 1, 0.25) !important;
+    background-color: rgba(1, 1, 1, 0.05) !important;
     transition: all 0.3s ease;
 }
 
 .form-control:hover,
 .form-select:hover {
-    border-color: #FFD700 !important;
-    box-shadow: 0 0 0 0.15rem rgba(255, 215, 0, 0.15) !important;
-    background-color: rgba(255, 215, 0, 0.02) !important;
+    border-color: #010101 !important;
+    box-shadow: 0 0 0 0.15rem rgba(1, 1, 1, 0.15) !important;
+    background-color: rgba(1, 1, 1, 0.02) !important;
     transition: all 0.3s ease;
 }
 
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-select:focus ~ label {
-    color: #FFD700 !important;
+    color: #010101 !important;
     font-weight: 600;
 }
 
 .form-floating > .form-control:hover ~ label,
 .form-floating > .form-select:hover ~ label {
-    color: #FFD700 !important;
+    color: #010101 !important;
     font-weight: 500;
 }
 
@@ -528,22 +536,22 @@
 .form-control:focus,
 .form-select:focus {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(1, 1, 1, 0.3) !important;
 }
 
 /* Special styling for booking form inputs */
 .booking .form-control:focus,
 .booking .form-select:focus {
-    border-color: #FFD700 !important;
-    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.4) !important;
-    background-color: rgba(255, 215, 0, 0.1) !important;
+    border-color: #010101 !important;
+    box-shadow: 0 0 0 0.25rem rgba(1, 1, 1, 0.4) !important;
+    background-color: rgba(1, 1, 1, 0.1) !important;
 }
 
 .booking .form-control:hover,
 .booking .form-select:hover {
-    border-color: #FFD700 !important;
-    box-shadow: 0 0 0 0.15rem rgba(255, 215, 0, 0.3) !important;
-    background-color: rgba(255, 215, 0, 0.05) !important;
+    border-color: #010101 !important;
+    box-shadow: 0 0 0 0.15rem rgba(1, 1, 1, 0.3) !important;
+    background-color: rgba(1, 1, 1, 0.05) !important;
 }
 
 /* Input text color styling */
