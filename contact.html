@@ -33,6 +33,75 @@
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Mobile navbar button positioning */
+        @media (max-width: 991.98px) {
+            .navbar-toggler {
+                order: 3;
+                margin-left: auto !important;
+            }
+            .navbar-brand {
+                order: 1;
+            }
+            .navbar-collapse {
+                order: 2;
+            }
+        }
+        
+        /* Responsive navbar logo and text */
+        @media (max-width: 576px) {
+            .navbar-brand img {
+                height: 36px !important;
+            }
+            .logo-text {
+                font-size: 1.1rem !important;
+                margin-left: 8px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar-brand img {
+                height: 32px !important;
+            }
+            .logo-text {
+                font-size: 1rem !important;
+                margin-left: 6px !important;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .navbar-brand img {
+                height: 28px !important;
+            }
+            .logo-text {
+                font-size: 0.9rem !important;
+                margin-left: 4px !important;
+            }
+        }
+        
+        /* Center images in cards */
+        .card-body img {
+            display: block !important;
+            margin: 0 auto !important;
+            max-width: 250px !important;
+            border-radius: 15px !important;
+        }
+        .map-responsive iframe {
+            width: 100% !important;
+            max-width: 600px;
+            height: 350px;
+        }
+        @media (max-width: 767.98px) {
+            .map-responsive iframe {
+                height: 250px;
+            }
+        }
+        @media (max-width: 480px) {
+            .map-responsive iframe {
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -48,10 +117,16 @@
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark px-5 d-none d-lg-block">
         <div class="row gx-0">
-            <div class="col-lg-12 text-center mb-2 mb-lg-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Edimco (à coté de ZR Express)</small>
-                    <small class="text-light"><i class="fa fa-phone-alt me-2"></i>07 70614198</small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Bougie, Algeria</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>0770 13 32 61</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>contact@boogieimmigration.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/bougie_immigration06/" target="_blank"><i class="fab fa-instagram" style="font-weight: bold; font-size: 1.2em;"></i></a>
                 </div>
             </div>
         </div>
@@ -111,11 +186,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                                    </div>
             <div class="row g-4 justify-content-center mt-5">
                 <div class="col-lg-8 text-center">
                     <h5 class="mb-4">Notre localisation</h5>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d157.92908243621818!2d5.050584973869888!3d36.74445286348085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sdz!4v1753654430171!5m2!1sen!2sdz" width="600" height="450" style="border: 2px solid #010101; border-radius: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="map-responsive">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d157.92908243621818!2d5.050584973869888!3d36.74445286348085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sdz!4v1753654430171!5m2!1sen!2sdz" width="600" height="450" style="border: 2px solid #010101; border-radius: 20px; width: 100%; max-width: 600px; height: 350px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,36 +203,29 @@
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
+            <div class="row g-4 justify-content-evenly">
+                <div class="col-lg-3 col-md-5 col-12 text-center">
                     <h4 class="text-white mb-3">Entreprise</h4>
-                    <a class="btn btn-link" href="about.html">À propos</a>
+                    <a class="btn btn-link" href="index.html">Accueil</a>
+                    <a class="btn btn-link" href="service.html">Services</a>
                     <a class="btn btn-link" href="contact.html">Contactez-nous</a>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-5 col-12 text-center">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Bougie, Algérie</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Bougie, Algeria</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0770 13 32 61</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>contact@boogieimmigration.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social me-2" href="https://www.facebook.com/MultiCampusDZ/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <div class="d-flex pt-2 justify-content-center">
                         <a class="btn btn-outline-light btn-social me-2" href="https://www.instagram.com/bougie_immigration06/" target="_blank"><i class="fab fa-instagram" style="font-weight: bold; font-size: 1.2em;"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="https://www.tiktok.com/@multicampusgroup" target="_blank"><i class="fab fa-tiktok" style="font-size: 1.2em;"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-5 col-12 text-center">
                     <h4 class="text-white mb-3">Catégories d'activité</h4>
                     <ul class="list-unstyled">
                         <li>Agence de conseil</li>
                         <li>Éducation</li>
                         <li>Service de passeport et visa</li>
                     </ul>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Abonnés</h4>
-                    <p>45K abonnés</p>
-                    <a class="btn btn-link" href="https://www.tiktok.com/@multicampusgroup?_t=8qHJURRdKRl&_r=1" target="_blank">TikTok</a>
-                    <a class="btn btn-link" href="https://multicampus.info" target="_blank">multicampus.info</a>
                 </div>
             </div>
         </div>

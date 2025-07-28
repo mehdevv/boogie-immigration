@@ -36,6 +36,66 @@
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Mobile navbar button positioning */
+        @media (max-width: 991.98px) {
+            .navbar-toggler {
+                order: 3;
+                margin-left: auto !important;
+            }
+            .navbar-brand {
+                order: 1;
+            }
+            .navbar-collapse {
+                order: 2;
+            }
+        }
+        
+        /* Responsive navbar logo and text */
+        @media (max-width: 576px) {
+            .navbar-brand img {
+                height: 36px !important;
+            }
+            .logo-text {
+                font-size: 1.1rem !important;
+                margin-left: 8px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar-brand img {
+                height: 32px !important;
+            }
+            .logo-text {
+                font-size: 1rem !important;
+                margin-left: 6px !important;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .navbar-brand img {
+                height: 28px !important;
+            }
+            .logo-text {
+                font-size: 0.9rem !important;
+                margin-left: 4px !important;
+            }
+        }
+        
+        /* Center images in cards */
+        .card-body img {
+            display: block !important;
+            margin: 0 auto !important;
+            max-width: 250px !important;
+            border-radius: 15px !important;
+        }
+        @media (min-width: 992px) {
+            .walid-name-title {
+                margin-top: 1rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -108,9 +168,9 @@
         <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6 text-center">
-            <img src="img/agency-face.jpg" alt="Fondateur Boogie Immigration" class="img-fluid rounded-circle mb-3" style="max-width: 220px;">
-            <h3 class="mb-2">Le visage de Boogie Immigration</h3>
-            <p class="lead">Votre expert dédié pour un accompagnement complet et personnalisé dans vos démarches d'études et d'immigration.</p>
+            <img src="img/walid.png" alt="Walid - Boogie Immigration" class="img-fluid mb-3" style="max-width: 250px; border-radius: 15px; display: block; margin: 0 auto;">
+            <h5 class="card-title walid-name-title" style="color: #010101; font-weight: 700; margin-bottom: 0.5rem;">Walid Ibrir</h5>
+            <p class="card-text" style="color: #6c757d; font-weight: 600; font-size: 1rem; margin-bottom: 0;">PDG de Boogie Immigration</p>
             </div>
         </div>
     </div>
