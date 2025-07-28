@@ -1,11 +1,11 @@
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCkPf_BSkb1VXSd9HNvzHKcWCPcS-Ghrr4",
-  authDomain: "multicampus-a8845.firebaseapp.com",
-  projectId: "multicampus-a8845",
-  storageBucket: "multicampus-a8845.firebasestorage.app",
-  messagingSenderId: "1009869895808",
-  appId: "1:1009869895808:web:9c90cab803825b6ac74e65"
+  apiKey: "AIzaSyDcHpigqAvdVJTA3UrKqRVm4wwIt61UFTs",
+  authDomain: "bougieimm.firebaseapp.com",
+  projectId: "bougieimm",
+  storageBucket: "bougieimm.firebasestorage.app",
+  messagingSenderId: "978962397992",
+  appId: "1:978962397992:web:e1a5a703474172baaa2e1d"
 };
 
 // Initialize Firebase
